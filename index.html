@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AXO Climb</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #06b6d4);
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 0 0 40px 40px;
+      animation: fadeIn 1s ease;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #ec4899;
+      padding: 12px 25px;
+      border-radius: 30px;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #f97316;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .bubble {
+      background: #06b6d4;
+      padding: 20px;
+      border-radius: 30px;
+      margin: 20px auto;
+      max-width: 600px;
+      font-size: 1.2rem;
+    }
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .card {
+      min-width: 300px;
+      margin: 10px;
+      background: #1e293b;
+      border-radius: 20px;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+
+    .card h3 {
+      color: #22d3ee;
+    }
+
+    .carousel-buttons {
+      margin-top: 20px;
+    }
+
+    .carousel-buttons button {
+      background: #ec4899;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .pricing-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .price-card {
+      background: #1e293b;
+      padding: 30px 20px;
+      border-radius: 25px;
+      width: 260px;
+      transition: 0.3s;
+      position: relative;
+    }
+    
+    .price-card:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+    
+    .price-card h3 {
+      color: #22d3ee;
+    }
+    
+    .price {
+      font-size: 2rem;
+      margin: 10px 0;
+      color: #ec4899;
+      font-weight: bold;
+    }
+    
+    .featured {
+      background: linear-gradient(135deg, #ec4899, #f97316);
+      transform: scale(1.05);
+    }
+    
+    .featured .price {
+      color: white;
+    }
+    
+    .featured h3 {
+      color: white;
+    }
+
+    footer {
+      background: #020617;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #22d3ee;
+      text-decoration: none;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 20px;
+      border: none;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>AXO Climb</h1>
+  <p>Escalada, diversión y comunidad 🧗‍♂️</p>
+  <a class="btn" href="https://wa.me/525613285351">Reserva ahora</a>
+</header>
+
+<section>
+  <h2>Día del Niño en AXO 🎉</h2>
+
+  <div class="bubble" style="background:#ec4899;">
+    Clase de escalada + pizza napolitana 🍕
+  </div>
+
+  <div class="bubble">
+    Para niños y niñas de 6 a 12 años
+  </div>
+
+  <div class="bubble" style="background:#1e40af;">
+    Duración: 1 hr 30 min <br>
+    Horarios: 12:00 PM | 03:00 PM
+  </div>
+</section>
+
+<section>
+  <h2>Clases y Actividades</h2>
+
+  <div class="carousel">
+    <div class="carousel-track" id="track">
+
+      <div class="card">
+        <h3>Escalada para principiantes</h3>
+        <p>Aprende desde cero con instructores expertos.</p>
+      </div>
+
+      <div class="card">
+        <h3>Boulder avanzado</h3>
+        <p>Rutas técnicas para llevar tu nivel al siguiente nivel.</p>
+      </div>
+
+      <div class="card">
+        <h3>Clases para niños</h3>
+        <p>Aprendizaje divertido y seguro.</p>
+      </div>
+
+      <div class="card">
+        <h3>Entrenamiento personalizado</h3>
+        <p>Rutinas específicas para mejorar tu rendimiento.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="carousel-buttons">
+    <button onclick="move(-1)">←</button>
+    <button onclick="move(1)">→</button>
+  </div>
+</section>
+<section>
+  <h2>Precios</h2>
+
+  <div class="pricing-container">
+
+    <div class="price-card">
+      <h3>Clase Individual</h3>
+      <p class="price">$200 MXN</p>
+      <p>Acceso a una sesión guiada de escalada</p>
+      <a href="https://wa.me/525613285351" class="btn">Reservar</a>
+    </div>
+
+    <div class="price-card featured">
+      <h3>Paquete Mensual</h3>
+      <p class="price">$1,200 MXN</p>
+      <p>Acceso ilimitado + asesoría básica</p>
+      <a href="https://wa.me/525613285351" class="btn">Más popular</a>
+    </div>
+
+    <div class="price-card">
+      <h3>Día del Niño 🎉</h3>
+      <p class="price">$350 MXN</p>
+      <p>Clase + pizza napolitana incluida</p>
+      <a href="https://wa.me/525613285351" class="btn">Apartar lugar</a>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Ubicación</h2>
+
+  <iframe src="https://www.google.com/maps?q=19.2560472,-99.1125507&z=15&output=embed"></iframe>
+</section>
+
+<footer>
+  <h3>Contacto</h3>
+
+  <p>📞 56 1328 5351</p>
+  <p>📧 axo.climb@gmail.com</p>
+
+  <p>
+    <a href="https://www.instagram.com/axoclimb">Instagram</a> |
+    <a href="https://www.facebook.com/AXOclimb">Facebook</a>
+  </p>
+
+  <p style="opacity:0.6;">© AXO Climb</p>
+</footer>
+
+<script>
+  let index = 0;
+
+  function move(direction) {
+    const track = document.getElementById("track");
+    const cards = document.querySelectorAll(".card");
+    const cardWidth = cards[0].offsetWidth + 20;
+
+    index += direction;
+
+    if (index < 0) index = 0;
+    if (index > cards.length - 1) index = cards.length - 1;
+
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
+
+  // Auto movement
+  setInterval(() => {
+    move(1);
+  }, 4000);
+</script>
+
+</body>
+</html>
