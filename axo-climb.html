@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXO Climb - Boulder, Café, Galería, Alegría</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF8C00;
+            --secondary: #87CEEB;
+            --dark: #0F172A;
+            --light: #F5F5F5;
+            --text: #1A1A1A;
+            --text-light: #666666;
+            --border: #E0E0E0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1.5rem;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: none;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        #hero {
+            margin-top: 70px;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663473245582/UYJieQSteNCzUF9CoiT6hA/axo-hero-climber-mQujc3i3YisLgrRZ7Bhbit.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        .hero-cta {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .hero-hashtag {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            section h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        section p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Nosotros Section */
+        #nosotros {
+            background: white;
+        }
+
+        .nosotros-intro {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pillar {
+            padding: 2rem;
+            border-left: 3px solid var(--primary);
+            background: #FAFAFA;
+            transition: all 0.3s ease;
+        }
+
+        .pillar:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .pillar h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .pillar p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Precios Section */
+        #precios {
+            background: #F9F9F9;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(255, 140, 0, 0.1);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.02), rgba(135, 206, 235, 0.02));
+        }
+
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card .details {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .btn:hover {
+            background: #E67E00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: #5DADE2;
+        }
+
+        /* Eventos Section */
+        #eventos {
+            background: white;
+        }
+
+        .carousel-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            background: #F5F5F5;
+            padding: 3rem 2rem;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .carousel h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .carousel p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .carousel-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #DDD;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--primary);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* Estudio Section */
+        #estudio {
+            background: #F9F9F9;
+        }
+
+        .estudio-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .estudio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .estudio-item {
+            background: white;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .estudio-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .estudio-item p {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .estudio-description {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Bistro Section */
+        #bistro {
+            position: relative;
+            background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663473245582/UYJieQSteNCzUF9CoiT6hA/axo-cafe-coffee-PWoNnA48pr9RUfQpeGMkRJ.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        #bistro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        #bistro .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        #bistro h2 {
+            color: white;
+        }
+
+        .bistro-intro {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .bistro-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bistro-carousel .carousel {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .bistro-carousel .carousel h3 {
+            color: var(--secondary);
+        }
+
+        .bistro-carousel .carousel p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .bistro-carousel .carousel-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .bistro-carousel .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+        }
+
+        .bistro-carousel .indicator {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .bistro-carousel .indicator.active {
+            background: var(--secondary);
+        }
+
+        /* Contacto Section */
+        #contacto {
+            background: white;
+        }
+
+        .contacto-intro {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .contact-card {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background: #F9F9F9;
+            border: 1px solid var(--border);
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
+
+            .pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#hero" class="logo">
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary);">AXO</div>
+                <div>
+                    <div class="logo-text" style="margin: 0; font-size: 1rem;">Climb</div>
+                    <div class="logo-subtitle">Boulder • Café • Galería</div>
+                </div>
+            </a>
+            <nav id="nav-menu">
+                <a href="#nosotros" onclick="setActive(this)">Nosotros</a>
+                <a href="#precios" onclick="setActive(this)">Precios</a>
+                <a href="#estudio" onclick="setActive(this)">Estudio</a>
+                <a href="#eventos" onclick="setActive(this)">Eventos</a>
+                <a href="#bistro" onclick="setActive(this)">Bistro</a>
+                <a href="#contacto" onclick="setActive(this)">Contacto</a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">AXO Climb</h1>
+            <p class="hero-subtitle">Boulder • Café • Galería • Alegría</p>
+            <h2 class="hero-cta">¡Escalemos juntos!</h2>
+            <p class="hero-hashtag">#MurosQueUnen</p>
+        </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros">
+        <div class="container">
+            <h2>Nosotros</h2>
+            <div class="nosotros-intro">
+                <p>AXO Climb nace con el objetivo de traer a Xochimilco la escalada y contribuir con nuestra comunidad a través del deporte y la cultura. Somos más que un gimnasio: somos un espacio de encuentro donde convergen cuatro pilares fundamentales.</p>
+            </div>
+            <div class="pillars">
+                <div class="pillar">
+                    <h3>Boulder</h3>
+                    <p>3 pisos de superficie escalable con nuevas rutas cada semana. Espacios diseñados para todos los niveles de experiencia.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Café</h3>
+                    <p>AXO Bistro es nuestra propuesta de cafetería gourmet con productos locales y preparados de manera artesanal.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Galería</h3>
+                    <p>Brindamos un espacio para que artistas locales promocionen sus obras y den a conocer su trabajo.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Alegría</h3>
+                    <p>Lo más importante es llenar Xochimilco de alegría mediante eventos, clases especiales y talleres comunitarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Precios Section -->
+    <section id="precios">
+        <div class="container">
+            <h2>Precios</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Daypass</h3>
+                    <div class="price">$200</div>
+                    <div class="details">
+                        <p>Acceso de un día</p>
+                        <p style="font-weight: 600; color: var(--primary);">Estudiantes: $150</p>
+                    </div>
+                    <button class="btn">Solicitar</button>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Mensualidad</h3>
+                    <div class="price">$1,000</div>
+                    <div class="details">
+                        <p>Escalada ilimitada</p>
+                        <p style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">Con clases: $1,400</p>
+                    </div>
+                    <button class="btn">Solicitar</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Semestre</h3>
+                    <div class="price">$6,700</div>
+                    <div class="details">
+                        <p>6 meses de acceso</p>
+                        <p>Mejor valor anual</p>
+                    </div>
+                    <button class="btn">Solicitar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos Section -->
+    <section id="eventos">
+        <div class="container">
+            <h2>Eventos y Talleres</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel" id="eventos-carousel">
+                    <h3>Competencia de Boulder</h3>
+                    <p>Únete a nuestra competencia mensual de escalada</p>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="prevEventos()">‹</button>
+                    <div class="carousel-indicators" id="eventos-indicators"></div>
+                    <button class="carousel-btn" onclick="nextEventos()">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estudio Section -->
+    <section id="estudio">
+        <div class="container">
+            <h2>Estudio AXO</h2>
+            <div class="estudio-content">
+                <p class="estudio-description">Descubre nuestras clases especializadas y talleres diseñados para todos los niveles de experiencia.</p>
+                <div class="estudio-grid">
+                    <div class="estudio-item">
+                        <p>Calendario de Clases Fijas</p>
+                    </div>
+                    <div class="estudio-item">
+                        <p>Horarios Especiales y Talleres</p>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn">Ver Calendario Completo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bistro Section -->
+    <section id="bistro">
+        <div class="container">
+            <h2>AXO Bistro</h2>
+            <p class="bistro-intro">Nuestra cafetería gourmet ofrece productos locales preparados artesanalmente. Un espacio donde la escalada se encuentra con la gastronomía de calidad.</p>
+            <div class="bistro-carousel">
+                <div class="carousel" id="bistro-carousel">
+                    <h3>Café Espresso</h3>
+                    <p>Café de especialidad tostado localmente</p>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="prevBistro()">‹</button>
+                    <div class="carousel-indicators" id="bistro-indicators"></div>
+                    <button class="carousel-btn" onclick="nextBistro()">›</button>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-secondary">Ver Menú Completo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p class="contacto-intro">Síguenos en nuestras redes sociales y mantente actualizado sobre eventos, talleres y novedades de AXO Climb.</p>
+            <div class="social-links">
+                <a href="https://instagram.com" class="social-link" title="Instagram">📷</a>
+                <a href="https://facebook.com" class="social-link" title="Facebook">f</a>
+                <a href="https://wa.me/5613285351" class="social-link" title="WhatsApp">💬</a>
+            </div>
+            <div class="contact-card">
+                <h3>¿Preguntas?</h3>
+                <p>Contáctanos directamente a través de WhatsApp</p>
+                <a href="https://wa.me/5613285351" class="btn">+56 1328 5351</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 AXO Climb. Todos los derechos reservados.</p>
+            <p>Escalemos juntos • #MurosQueUnen</p>
+            <p>Desarrollado por <a href="https://www.mexweb.store/" target="_blank">MEXWEB 🐙</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Carousel data
+        const eventosData = [
+            { title: 'Competencia de Boulder', description: 'Únete a nuestra competencia mensual de escalada' },
+            { title: 'Taller de Técnica', description: 'Aprende las mejores técnicas de escalada con expertos' },
+            { title: 'Noche Social', description: 'Disfruta de café y compañía en AXO Bistro' },
+            { title: 'Exposición de Arte', description: 'Descubre obras de artistas locales en nuestra galería' }
+        ];
+
+        const bistroData = [
+            { title: 'Café Espresso', description: 'Café de especialidad tostado localmente' },
+            { title: 'Cappuccino Artesanal', description: 'Con leche de avena o almendra' },
+            { title: 'Croissant de Chocolate', description: 'Receta francesa tradicional' },
+            { title: 'Sándwich Gourmet', description: 'Ingredientes locales frescos' },
+            { title: 'Postre del Día', description: 'Preparado artesanalmente cada mañana' }
+        ];
+
+        let eventosIndex = 0;
+        let bistroIndex = 0;
+
+        function updateEventosCarousel() {
+            const carousel = document.getElementById('eventos-carousel');
+            carousel.innerHTML = `<h3>${eventosData[eventosIndex].title}</h3><p>${eventosData[eventosIndex].description}</p>`;
+            updateIndicators('eventos-indicators', eventosIndex, eventosData.length);
+        }
+
+        function updateBistroCarousel() {
+            const carousel = document.getElementById('bistro-carousel');
+            carousel.innerHTML = `<h3>${bistroData[bistroIndex].title}</h3><p>${bistroData[bistroIndex].description}</p>`;
+            updateIndicators('bistro-indicators', bistroIndex, bistroData.length);
+        }
+
+        function updateIndicators(containerId, activeIndex, total) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            for (let i = 0; i < total; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'indicator' + (i === activeIndex ? ' active' : '');
+                indicator.onclick = () => {
+                    if (containerId === 'eventos-indicators') {
+                        eventosIndex = i;
+                        updateEventosCarousel();
+                    } else {
+                        bistroIndex = i;
+                        updateBistroCarousel();
+                    }
+                };
+                container.appendChild(indicator);
+            }
+        }
+
+        function nextEventos() {
+            eventosIndex = (eventosIndex + 1) % eventosData.length;
+            updateEventosCarousel();
+        }
+
+        function prevEventos() {
+            eventosIndex = (eventosIndex - 1 + eventosData.length) % eventosData.length;
+            updateEventosCarousel();
+        }
+
+        function nextBistro() {
+            bistroIndex = (bistroIndex + 1) % bistroData.length;
+            updateBistroCarousel();
+        }
+
+        function prevBistro() {
+            bistroIndex = (bistroIndex - 1 + bistroData.length) % bistroData.length;
+            updateBistroCarousel();
+        }
+
+        function setActive(element) {
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Initialize carousels
+        updateEventosCarousel();
+        updateBistroCarousel();
+
+        // Auto-advance carousels every 8 seconds
+        setInterval(() => {
+            eventosIndex = (eventosIndex + 1) % eventosData.length;
+            updateEventosCarousel();
+        }, 8000);
+
+        setInterval(() => {
+            bistroIndex = (bistroIndex + 1) % bistroData.length;
+            updateBistroCarousel();
+        }, 8000);
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'nosotros', 'precios', 'eventos', 'estudio', 'bistro', 'contacto'];
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const { offsetTop, offsetHeight } = section;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                        const navLinks = document.querySelectorAll('nav a');
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
